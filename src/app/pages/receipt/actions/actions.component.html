@@ -1,0 +1,72 @@
+<div fxLayout="row wrap">
+  <div fxFlex="80" fxLayoutAlign="start center">
+    <mat-card-title class="title-receipts">Mis recibos</mat-card-title>
+  </div>
+</div>
+
+<mat-card class="receipt">
+  <mat-card-content>
+    <mat-card-header>
+      <div mat-card-avatar>
+        <button
+          mat-button
+          color="accent"
+          class="noPadding"
+          style="min-width: 50px"
+          matTooltip="Ver Recibo"
+        >
+          <mat-icon
+            class="receiptIcon"
+            [svgIcon]="utils.iconsReceipt(receipt)"
+          ></mat-icon>
+        </button>
+      </div>
+      <div fxFlex="100">
+        <mat-card-title>{{ receipt.period | date: "yyyy-MM" }}</mat-card-title>
+        <mat-card-subtitle class="textInMultiline">
+          <p>{{ receipt.description }}</p>
+          <p *ngIf="receipt.disagree">
+            Motivo disconformidad: {{ receipt.disagree }}
+          </p>
+        </mat-card-subtitle>
+      </div>
+    </mat-card-header>
+  </mat-card-content>
+  <mat-card-content>
+    <div fxFlex="row wrap" fxLayoutGap="8px">
+      <button
+        class="btn-actions"
+        (click)="open(receipt)"
+        fxFlex="50"
+        mat-flat-button
+      >
+        <mat-icon svgIcon="open-mini"></mat-icon>Abrir
+      </button>
+      <button
+        *ngIf="receipt.signed"
+        class="btn-actions"
+        (click)="download(receipt)"
+        fxFlex="50"
+        mat-flat-button
+      >
+        <mat-icon svgIcon="download-mini"></mat-icon> Descargar
+      </button>
+      <button
+        *ngIf="!receipt.signed"
+        [disabled]="!(hasDigitalSign | async)?.data"
+        class="btn-signed"
+        mat-flat-button
+        matTooltip="Firmar Recibo"
+        fxFlex="50"
+        (click)="signReceipt(receipt)"
+      >
+        Firmar
+      </button>
+
+      <!-- <button *ngIf="!receipt.signed" [disabled]="!(hasDigitalSign | async)?.data" class="btn-signed" mat-flat-button (click)="sign(receipt)" style="width: 100%;"
+                 matTooltip="Firmar Recibo">
+                Firmar
+            </button> -->
+    </div>
+  </mat-card-content>
+</mat-card>

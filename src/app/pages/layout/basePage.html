@@ -1,0 +1,21 @@
+<mat-sidenav-container fullscreen class="mat-typography">
+  <!--   SIDEBAR -->
+  <mat-sidenav #sidenav class="sidebar" mode="over"> </mat-sidenav>
+
+  <!-- LAYOUT -->
+  <div fxLayout="column" class="page">
+    <layout-header
+      [sidenav]="sidenav"
+      *ngIf="authService.getUser()"
+    ></layout-header>
+    <main [ngClass]="{'content-100': getActualRoute() == '/login', 'content':  getActualRoute() != '/login'}">
+      <router-outlet></router-outlet>
+    </main>
+
+    <layout-footer
+      fxFlexOffset="auto"
+      *ngIf="authService.isLogged()"
+      class="footer"
+    ></layout-footer>
+  </div>
+</mat-sidenav-container>

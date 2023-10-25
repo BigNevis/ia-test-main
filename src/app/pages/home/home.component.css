@@ -1,0 +1,25 @@
+.title-principal {
+  font-weight: 100;
+  font-size: 36px;
+  text-align: center;
+  color: #FFFFFF;
+}
+
+::ng-deep .mat-card.menuCard {
+  margin: 10px 0px 0px 10px;
+  cursor: pointer;
+}
+
+::ng-deep .mat-card-title.title-menu {
+  margin-top: 2vh;
+  ;
+}
+
+::ng-deep .mat-card-title.title-menu:after {
+  content: '';
+  width: 25px;
+  height: 3px;
+  display: block;
+  margin: 10px auto;
+  background-color: #FFB600;
+}

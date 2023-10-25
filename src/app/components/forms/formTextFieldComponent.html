@@ -1,0 +1,8 @@
+<mat-form-field fxFlexFill>
+  <label>
+    <textarea matInput placeholder="{{name}}" formControlName="{{controlName}}" [required]="required" maxlength="{{maxLength}}"></textarea>
+  </label>
+  <mat-hint align="start">{{description}}</mat-hint>
+  <mat-hint align="end" class="nowrap">{{Utils.getFieldControlLength(form, controlName)}} / {{maxLength}}</mat-hint>
+  <mat-error>{{i18nService.getValidationMessage(form.controls[controlName])}}</mat-error>
+</mat-form-field>

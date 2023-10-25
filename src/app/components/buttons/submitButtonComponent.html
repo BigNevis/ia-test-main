@@ -1,0 +1,4 @@
+<button mat-raised-button [color]="color" style="width: 100%" [disabled]="disabled" (click)="clickAction()">
+  <mat-progress-bar class="progressBarButton" *ngIf="loading" color="accent" mode="indeterminate"></mat-progress-bar>
+  <ng-content></ng-content>
+</button>

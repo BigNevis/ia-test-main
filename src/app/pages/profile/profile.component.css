@@ -1,0 +1,5 @@
+.profile {
+  height: calc(100% - 70px);
+  overflow-y: auto;
+  margin-bottom: 0px !important;
+}

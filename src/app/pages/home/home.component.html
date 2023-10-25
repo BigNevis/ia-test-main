@@ -1,0 +1,33 @@
+<div fxLayout="column" fxLayoutAlign="center center" fxFlexFill>
+    <div fxLayout="row wrap" fxLayoutAlign="center center">
+        <div fxLayout="row">
+            <h2 class="title-principal">Bienvenido</h2>
+        </div>
+    </div>
+    <div fxLayout="row wrap" fxLayoutGap="0%" fxLayoutAlign="center center">
+        <mat-card fxFlex="40" fxLayoutAlign="center" class="menuCard">
+            <mat-card-content (click)="goToRecipt()" fxLayout="column" fxLayoutAlign="center center">
+                <mat-icon svgIcon="recipt" color="primary" style="width: 60px; height: 60px;"></mat-icon>
+                <mat-card-title class="title-menu">Recibos</mat-card-title>
+            </mat-card-content>
+        </mat-card>
+        <mat-card fxLayout="row" fxFlex="40" fxLayoutAlign="center" class="menuCard">
+            <mat-card-content fxLayout="column" fxLayoutAlign="center center">
+                <mat-icon svgIcon="vacation" color="primary" style="width: 60px; height: 60px;"></mat-icon>
+                <mat-card-title class="title-menu">Vacaciones</mat-card-title>
+            </mat-card-content>
+        </mat-card>
+        <mat-card fxFlex="40" fxLayoutAlign="center" class="menuCard">
+            <mat-card-content fxLayout="column" fxLayoutAlign="center center">
+                <mat-icon svgIcon="document" color="primary" style="width: 60px; height: 60px;"></mat-icon>
+                <mat-card-title class="title-menu">Documentos</mat-card-title>
+            </mat-card-content>
+        </mat-card>
+        <mat-card fxFlex="40" fxLayoutAlign="center" class="menuCard">
+            <mat-card-content fxLayout="column" fxLayoutAlign="center center">
+                <mat-icon svgIcon="community" color="primary" style="width: 60px; height: 60px;"></mat-icon>
+                <mat-card-title class="title-menu">Comunidad</mat-card-title>
+            </mat-card-content>
+        </mat-card>
+    </div>
+</div>

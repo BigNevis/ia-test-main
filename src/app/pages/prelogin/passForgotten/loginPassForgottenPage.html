@@ -1,0 +1,32 @@
+<div style=" color: #fff;" fxLayout="column" fxFlexFill fxLayoutAlign="center center">
+  <img [src]="'assets/img/'+configService.companyAssets+'/logo.svg'" width="60%" style="max-width: 350px">
+  <br><br><br><br>
+  <h1 mat-dialog-title>Reestablecer contraseña</h1>
+  <br>
+
+  <form [formGroup]="form" style="width: 80%">
+    <div *ngIf="!success" fxLayout="column">
+      <form-field-input-type class="input-white" fxFlex="100" [form]="form" type="text"
+                             name="Usuario o Correo" maxLength="100" autocomplete="off" required iconClass="white" matIcon="account_circle"
+                             controlName="userMail">
+      </form-field-input-type>
+      <br>
+      <p fxFlex="100" class="mat-body">Al completar este formulario se le enviará a su casilla de correo una contraseña
+        temporal la cual deberá cambiarla para volver a utilizar el sistema nuevamente.</p>
+      <br>
+      <div fxLayoutAlign="center">
+        <submit-button style="width: 100%" id="btnReset" [click]="recoverPassword.bind(this)">Reestablecer</submit-button>
+      </div>
+
+      <br>
+      <p *ngIf="error" class="mat-error textInMultiline">{{error}}</p>
+    </div>
+
+    <div fxLayout="column" fxLayoutAlign="center center" *ngIf="success">
+      <button mat-button class="successButton no-hover-effect">Correo enviado correctamente!</button>
+      <br>
+      <a mat-button class="no-hover-effect" (click)="loginPage()">Volver</a>
+    </div>
+
+  </form>
+</div>

@@ -1,0 +1,22 @@
+<mat-card class="profile">
+  <mat-card-content fxlayout="column" fxFlexFill fxLayoutAlign="center center">
+    <div
+      *ngIf="authService.isLogged()"
+      fxLayout="column"
+      fxLayoutAlign="center center"
+      style="margin-top: 20px"
+    >
+      <image-button
+        width="100px"
+        height="100px"
+        round="true"
+        [src]="getPhoto()"
+        tooltip="Cambiar imágen"
+        (onClick)="uploadUserPhoto()"
+      ></image-button>
+      <mat-card-subtitle>
+        <span>{{ authService.getUser().name }}</span>
+      </mat-card-subtitle>
+    </div>
+  </mat-card-content>
+</mat-card>

@@ -1,0 +1,52 @@
+<h1 mat-dialog-title>Seleccione {{this.options.onlyImages?"una imagen":"un archivo"}}:
+  <button mat-button color="accent" matTooltip="Seleccionar archivo" (click)="fileInput.click()">
+    <mat-icon>attach_file</mat-icon> cargar
+  </button>
+</h1>
+
+<div mat-dialog-content [formGroup]="form">
+  <span *ngIf="base64File==null && !loading">Haga click en "Cargar" para seleccionar {{this.options.onlyImages?"una imagen":"un archivo"}}.</span>
+  <div *ngIf="loading" fxLayout="row" fxLayoutAlign="center center">
+    <mat-progress-spinner color="accent" mode="indeterminate" diameter="60"></mat-progress-spinner>
+    <span>&nbsp; cargando {{options.onlyImages?"imagen":"archivo"}}...</span>
+  </div>
+
+  <input type="file" hidden (change)="fileChangeEvent($event)" #fileInput [accept]="allowFileTypes">
+
+  <form-row *ngIf="base64File && options.showNameField">
+    <form-field fxFlex="100%" name="Nombre" [form]="form" controlName="name" required maxLength="45"
+                description="Ingrese hasta 45 caracteres."></form-field>
+  </form-row>
+
+  <image-cropper *ngIf="imageChangedEvent"
+    [roundCropper]="options.roundCropper"
+    [imageChangedEvent]="imageChangedEvent"
+    [maintainAspectRatio]="options.maintainAspectRatio"
+    [resizeToWidth]="options.resizeToWidth" [resizeToHeight]="options.resizeToHeight"
+    [transform]="imageTransform"
+    format="png" onlyScaleDown="true"
+    (imageLoaded)="imageLoaded()" (imageCropped)="imageCropped($event)" (loadImageFailed)="imageLoaded()">
+  </image-cropper>
+
+  <div *ngIf="base64File && icon" fxLayout="row" fxLayoutAlign="center center" ngClass.xs="noAlignItems">
+    <img [src]="icon" alt=""/>
+  </div>
+
+</div>
+
+<div mat-dialog-actions>
+  <div *ngIf="base64File && options.onlyImages">
+    <button style="width: 24px" color="accent" mat-icon-button aria-label="rotar a la izquierda" (click)="rotateLeft()">
+      <mat-icon>rotate_left</mat-icon>
+    </button>
+      <button style="width: 24px" color="accent" mat-icon-button aria-label="espejar" (click)="flip()">
+        <mat-icon>flip</mat-icon>
+      </button>
+    <button style="width: 24px" color="accent" mat-icon-button aria-label="rotar a la derecha" (click)="rotateRight()">
+      <mat-icon>rotate_right</mat-icon>
+    </button>
+  </div>
+  <span style="flex: 1 1 auto;"></span>
+  <button mat-button color="warn" (click)="cancel()">Cancelar</button>
+  <button mat-raised-button color="primary" [disabled]="base64File==null" (click)="save()">Guardar</button>
+</div>

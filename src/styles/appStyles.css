@@ -1,0 +1,16 @@
+/* ------- estilos por aplicacion -------- */
+
+:root {
+  /* background */
+  --background-color: var(--background-color-ACCIONA);
+  --background-color-ACCIONA: #EF3340;
+  --background-color-IGM: blueviolet;
+  --background-color-FLOCK: rgb(72, 2, 98);
+
+  /* button */
+  --button-color: var(--button-color-ACCIONA);
+  --button-color-ACCIONA: #ffb600;
+  --button-color-IGM: #ffb600;
+  --button-color-FLOCK: rgb(254, 82, 18);
+
+}

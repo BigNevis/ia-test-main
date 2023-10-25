@@ -1,0 +1,7 @@
+/* ------- colors -------- */
+.grey {
+  color: grey !important;
+}
+.fieldColor {
+  color: rgba(0, 0, 0, 0.50);
+}

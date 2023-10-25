@@ -1,0 +1,66 @@
+<div
+  fxLayout="column"
+  fxFlexFill
+  fxLayoutAlign="space-between"
+  style="background-color: #ef3340 !important"
+>
+  <mat-card class="card-red">
+    <mat-card-content>
+      <img
+        mat-md-card-image
+        [src]="'assets/img/'+configService.companyAssets+'/logo.svg'"
+        alt=""
+        style="margin: 4vh 0"
+      />
+      <form [formGroup]="form" fxLayout="column" style="margin-top: 11vh">
+        <form-field-input-type
+          class="login input-white"
+          fxFlex="100"
+          [form]="form"
+          type="text"
+          name="Usuario"
+          maxLength="100"
+          autocomplete="off"
+          required
+          matIcon="person_outline"
+          controlName="user"
+        >
+        </form-field-input-type>
+        <form-field-input-type
+          class="login input-white"
+          fxFlex="100"
+          fxFlex.xs="100"
+          [form]="form"
+          type="password"
+          name="Contraseña"
+          maxLength="30"
+          autocomplete="off"
+          matIcon="lock"
+          controlName="password"
+        >
+        </form-field-input-type>
+        <mat-checkbox
+          class="login"
+          fxFlex="25"
+          fxFlex.xs="100"
+          color="primary"
+          formControlName="rememberMe"
+        >
+          Recordarme
+        </mat-checkbox>
+        <p *ngIf="error" class="mat-error textInMultiline">{{error}}</p>
+        <a (click)="passForgotten()" style="color: #fff"
+          >No recuerdo mi contraseña</a
+        >
+        <button mat-flat-button class="submitV2" (click)="login()">
+          Ingresar
+        </button>
+      </form>
+    </mat-card-content>
+  </mat-card>
+  <mat-card fxLayout="column wrap" fxLayoutAlign="center center" fxFlexOffset="auto" id="background-acciona" class="login-image">
+    <img
+      src="assets/img/personas.png"
+    />
+  </mat-card>
+</div>

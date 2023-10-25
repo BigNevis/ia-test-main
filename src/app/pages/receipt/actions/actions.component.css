@@ -1,0 +1,25 @@
+.receiptIcon {
+  height: 50px;
+  width: 50px;
+  font-size: 50px;
+}
+
+.btn-actions {
+  border: 1px solid #373a36;
+  box-sizing: border-box;
+  border-radius: 5px;
+}
+
+.btn-actions .mat-icon {
+  margin-right: 5px;
+}
+.btn-signed {
+  background: #ef3340;
+  color: #fff;
+}
+
+.receipt {
+  height: calc(100% - 70px);
+  overflow-y: auto;
+  margin-bottom: 0px !important;
+}

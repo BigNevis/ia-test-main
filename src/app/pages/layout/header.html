@@ -1,0 +1,43 @@
+<mat-toolbar>
+  <div
+    *ngIf="getActualRoute() =='/actions' || getActualRoute()  =='/sign' "
+    fxFlex="5"
+    fxLayoutAlign="center center"
+    style="margin-left: 10px"
+  >
+    <button type="button" mat-icon-button (click)="backClicked()">
+      <mat-icon svgIcon="back-arrow"></mat-icon>
+    </button>
+  </div>
+
+  <div
+    *ngIf="!(getActualRoute() =='/actions' || getActualRoute()  =='/sign')"
+    fxFlex="5"
+    fxLayoutAlign="center center"
+    style="margin-left: 10px"
+  ></div>
+
+  <div fxFlex="95" fxLayoutAlign="center center">
+    <img [src]="'assets/img/'+configService.companyAssets+'/logo.svg'" class="img-fluid" />
+  </div>
+
+  <button
+    type="button"
+    mat-icon-button
+    *ngIf="pwaService.isInstallable()"
+    (click)="pwaService.install()"
+    matTooltip="Instalar"
+  >
+    <mat-icon></mat-icon>
+  </button>
+
+  <button
+    class="home"
+    type="button"
+    mat-icon-button
+    (click)="logout()"
+    matTooltip="Salir"
+  >
+    <mat-icon svgIcon="exit"></mat-icon>
+  </button>
+</mat-toolbar>

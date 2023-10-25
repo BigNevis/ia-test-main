@@ -1,0 +1,68 @@
+mat-card {
+  margin-bottom: 14px;
+  padding: 12px;
+}
+
+.recipt mat-card-header {
+  height: 50px;
+}
+
+.recipt .mat-card-title {
+  margin-top: 5px;
+  margin-left: 5px;
+}
+
+.recipt .mat-card-subtitle {
+  margin-left: 5px;
+}
+
+.receiptIcon {
+  height: 50px;
+  width: 50px;
+  font-size: 50px;
+}
+
+.receipt {
+  height: calc(100% - 70px);
+  overflow-y: auto;
+  margin-bottom: 0px !important;
+}
+
+.sign {
+  height: 36px;
+  margin-top: 7px;
+  width: 100px;
+}
+
+.sign.signed-disagree {
+  margin-top: 0;
+}
+
+.sign.signed-disagree h3 {
+  margin-bottom: 0;
+}
+
+.sign.signed-disagree button.mat-icon-button {
+  height: 32px;
+  line-height: 32px;
+}
+
+.sign.signed-disagree .disagree-msg {
+  color: orangered;
+}
+
+.signText {
+  color: forestgreen;
+  font-weight: bold;
+}
+
+button.download {
+  width: 100% !important;
+  background-color: white !important;
+  border: 1px solid #373A36;
+  color: #373a36 !important;
+  height: 42px;
+  font-size: 16px;
+  font-weight: 400 !important;
+  margin-top: 2vh;
+}

@@ -1,0 +1,22 @@
+<mat-form-field fxFlexFill>
+  <mat-label>{{name}}</mat-label>
+  <label>
+    <input
+      matInput
+      type="{{type}}"
+      placeholder="{{placeholder?placeholder: ''}}"
+      formControlName="{{controlName}}"
+      [required]="required"
+      maxlength="{{maxLength}}"
+      autocomplete="{{autocomplete}}"
+    />
+  </label>
+
+  <mat-icon *ngIf="!customIcon" matSuffix ngClass="{{iconClass}}"
+    >{{matIcon}}</mat-icon
+  >
+  <mat-icon *ngIf="customIcon" matSuffix [svgIcon]="matIcon"></mat-icon>
+  <mat-error
+    >{{i18nService.getValidationMessage(form.controls[controlName])}}</mat-error
+  >
+</mat-form-field>

@@ -1,0 +1,112 @@
+<div fxLayout="row wrap">
+  <div fxFlex="80" fxLayoutAlign="start center">
+    <mat-card-title class="title-receipts">Mis recibos</mat-card-title>
+  </div>
+</div>
+
+<mat-card class="receipt" style="height: 80vh">
+  <mat-card-content fxLayout="column wrap">
+    <mat-card-title
+      *ngIf="!receipt.signed"
+      fxFlex="100"
+      style="margin-left: 1rem"
+      >Firmar recibo</mat-card-title
+    >
+    <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="3%">
+      <mat-card-header fxFlex="10">
+        <div mat-card-avatar>
+          <button
+            mat-button
+            color="accent"
+            class="noPadding"
+            style="min-width: 50px"
+          >
+            <mat-icon
+              class="receiptIcon"
+              [svgIcon]="utils.iconsReceipt(receipt)"
+            ></mat-icon>
+          </button>
+        </div>
+      </mat-card-header>
+      <div fxFlex="90" fxLayoutAlign="start center">
+        <mat-card-subtitle style="margin-bottom: 0px !important">
+          <strong>{{ receipt.period | date: "yyyy-MM" }}</strong>
+          <span> {{ receipt.description }}</span>
+        </mat-card-subtitle>
+      </div>
+    </div>
+  </mat-card-content>
+  <mat-divider></mat-divider>
+  <!--formulario firmar recibo-->
+  <mat-card-content *ngIf="!receipt.signed">
+    <div mat-dialog-content [formGroup]="form">
+      <form-row>
+        <!-- <mat-icon class="iconPopup">{{form.get("agree").value!='false'?'thumb_up':'thumb_down'}}</mat-icon> -->
+        <mat-radio-group formControlName="agree" required fxFlex="column wrap" (change)="agreeChange($event)">
+          <div class="column" style="margin: 20px 0px">
+            <div fxFlex="row" fxFlex="100">
+              <div fxFlex="90">En conformidad</div>
+              <div fxFlex="5">
+                <mat-radio-button value="true"></mat-radio-button>
+              </div>
+            </div>
+          </div>
+          <div class="column">
+            <div fxFlex="row" fxFlex="100">
+              <div fxFlex="90">En disconformidad</div>
+              <div fxFlex="5">
+                <mat-radio-button value="false"></mat-radio-button>
+              </div>
+            </div>
+          </div>
+        </mat-radio-group>
+      </form-row>
+      <br />
+      <ng-container *ngIf="isDisagree()">
+      <form-row>
+        <form-text-field
+          fxFlex
+          [form]="form"
+          controlName="reason"
+          name="Motivo *"
+          maxLength="120"
+        >
+        </form-text-field>
+      </form-row>
+      </ng-container>
+      <br /><br />
+      <form-row>
+        <form-field-input-type
+          fxFlex="100"
+          [form]="form"
+          required
+          type="password"
+          name="PIN"
+          maxLength="4"
+          autocomplete="off"
+          controlName="password"
+          customIcon="true"
+          matIcon="key"
+        ></form-field-input-type>
+        <a fxFlex="30" (click)="createDigitalSign()">No recuerdo mi PIN</a>
+      </form-row>
+      <br /><br />
+      <!-- <pre><code>{{form.status}}</code></pre>
+            <pre><code>{{form.value | json}}</code></pre> -->
+      <submit-button
+        id="firmar"
+        [disabled]="form.invalid"
+        [click]="confirm.bind(this)"
+        >Firmar
+      </submit-button>
+    </div>
+  </mat-card-content>
+  <mat-card-content
+    *ngIf="receipt.signed"
+    fxLayout="column"
+    fxLayoutAlign="center center"
+  >
+    <mat-icon svgIcon="signed" id="signedReceipt"></mat-icon>
+    <mat-card-title style="margin-top: 20px">Recibo firmado</mat-card-title>
+  </mat-card-content>
+</mat-card>

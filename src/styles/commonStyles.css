@@ -1,0 +1,82 @@
+/* ------- estilos comunes --------- */
+.noPadding {
+  padding: 0 0 0 0 !important;
+}
+.noMargin {
+  margin: 0 0 0 0 !important;
+}
+.noAlignItems {
+  align-items: unset!important;
+}
+
+/* --------- imagenes -------- */
+.image-profile {
+  border-radius: 50%;
+}
+
+/* ----------- icons ----------*/
+.iconPopup {
+  font-size: 34px;
+  margin-right: 25px !important;
+}
+
+a:hover {
+  cursor:pointer;
+  color: blue;
+}
+.mat-card-title.title-receipts {
+  font-weight: 200;
+  font-size: 24px;
+  line-height: 36px;
+  color: #fff;
+  margin-left: 1vw;
+}
+.uploader-status ::ng-deep .mat-progress-spinner circle, .mat-spinner circle {
+  stroke: #fff !important;
+  color: #fff;
+}
+
+.input-white .mat-form-field,
+.input-white .mat-form-field-label,
+.input-white .mat-focused .mat-form-field-placeholder {
+  color: white !important;
+}
+
+.input-white .mat-form-field-underline,
+.input-white .mat-form-field-underline .mat-form-field-ripple {
+  background-color: white !important;
+}
+
+.input-white .mat-input-element .mat-form-field-autofill-control {
+  background: none !important;
+}
+
+/*Quitar fondo de autocompletado*/
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  transition: background-color 5000s;
+  -webkit-text-fill-color: #fff !important;
+}
+
+.mat-error,
+.mat-error {
+  color: white !important;
+}
+
+mat-sidenav-content {
+  overflow: unset !important;
+}
+
+/* -------- botones --------------- */
+.successButton {
+  background-color: mediumseagreen;
+  color: white;
+}
+.successButton:hover {
+  cursor:default !important;
+}
+.no-hover-effect.mat-button .mat-button-focus-overlay {
+  background-color: transparent;
+}

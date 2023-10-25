@@ -1,0 +1,97 @@
+<!-- firma digital -->
+<ng-container *ngIf="receipts!=null && receipts.length>0">
+  <mat-card
+    *ngIf="!(hasDigitalSign | async)?.data"
+    style="margin: 0 auto; width: 80%"
+  >
+    <mat-card-header>
+      <div mat-card-avatar>
+        <mat-icon class="receiptIcon">edit</mat-icon>
+      </div>
+      <mat-card-title>Información</mat-card-title>
+      <mat-card-subtitle style="margin-bottom: 0"
+        >Para poder firmar tus recibos de sueldo necesitas de una Firma
+        Digital.</mat-card-subtitle
+      >
+    </mat-card-header>
+    <mat-card-actions align="end" style="padding-top: 0">
+      <button mat-button color="primary" (click)="createDigitalSign(true)">
+        Crear Firma Digital
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</ng-container>
+
+<div fxLayout="row wrap">
+  <div fxFlex="80" fxLayoutAlign="start center">
+    <mat-card-title class="title-receipts">Mis recibos</mat-card-title>
+  </div>
+  <!--Falta desarrollar-->
+  <!-- <div fxFlex="20" fxLayoutAlign="center center">
+
+    <mat-icon svgIcon="filter"></mat-icon>
+    <span style="margin-left: 1vw; color: #fff;">Filtros</span>
+  </div> -->
+</div>
+<!-- recibos -->
+
+<mat-progress-bar
+  *ngIf="loading"
+  color="accent"
+  mode="indeterminate"
+></mat-progress-bar>
+<mat-card class="receipt" *ngIf="receipts != null && receipts.length > 0">
+  <mat-card-content *ngFor="let receipt of receipts">
+    <mat-card-header>
+      <div mat-card-avatar fxFlex="10" fxLayoutAlign="start center">
+        <!--Falta descarga masiva-->
+        <!-- <mat-checkbox></mat-checkbox> -->
+        <div color="accent" class="noPadding" style="min-width: 50px">
+          <mat-icon
+            class="receiptIcon"
+            [svgIcon]="utils.iconsReceipt(receipt)"
+          ></mat-icon>
+        </div>
+      </div>
+      <div fxFlex="90">
+        <mat-card-title>{{receipt.period | date:'yyyy-MM'}}</mat-card-title>
+        <mat-card-subtitle class="textInMultiline"
+          >{{receipt.description}}</mat-card-subtitle
+        >
+      </div>
+      <div
+        [class]="'sign ' + ((receipt.signed && receipt.disagree) ? 'signed-disagree' : '')"
+      >
+        <button mat-flat-button (click)="actionsReceipt(receipt)">
+          <mat-icon svgIcon="go"></mat-icon>
+        </button>
+      </div>
+    </mat-card-header>
+    <mat-divider></mat-divider>
+  </mat-card-content>
+  <div style="height: 53px"></div>
+  <!--falta descarga masiva-->
+  <!-- <button mat-flat-button class="download">
+    <mat-card-title style="font-weight: 400;" fxLayout="row" fxLayoutAlign="center center">
+      <mat-icon style="width: 30px; height: 30px;" svgIcon="download"></mat-icon>
+      <span style="margin-left: 10px;">Descargar</span>
+    </mat-card-title>
+  </button> -->
+</mat-card>
+
+<mat-card
+  style="margin: 0 auto; width: 80%"
+  *ngIf="receipts!=null && receipts.length==0"
+>
+  <mat-card-header>
+    <div mat-card-avatar>
+      <mat-icon class="receiptIcon" style="color: blue">info</mat-icon>
+    </div>
+    <mat-card-title style="margin-top: 5px; margin-left: 5px"
+      >Información</mat-card-title
+    >
+    <mat-card-subtitle
+      >Todavía no tienes recibos cargados en el sistema.</mat-card-subtitle
+    >
+  </mat-card-header>
+</mat-card>

@@ -1,0 +1,40 @@
+<footer>
+  <!--footer home-->
+  <mat-toolbar *ngIf="getActualRoute() === '/home'" class="footer" id="redFoot">
+    <div style="flex: 1 1 auto; cursor: pointer;">
+      <div class="circle-icon">
+        <mat-icon svgIcon="user"></mat-icon>
+      </div>
+      <span style="margin-left:13px">Perfil</span>
+    </div>
+  </mat-toolbar>
+  <!--footer general-->
+  <div fxLayout="row" fxLayoutAlign="center" id="footerMenu" class="footer">
+    <div fxFlex="20" fxLayout="column" fxLayoutAlign="space-between center" class="item-Menu">
+      <a class="linkMenu" (click)="goTo('receipts')">
+        <mat-icon svgIcon="recipt"></mat-icon>
+        <p>Recibos</p>
+      </a>
+
+    </div>
+    <div fxFlex="20" fxLayout="column" fxLayoutAlign="space-between center">
+      <a class="linkMenu" (click)="goTo('profile')">
+        <mat-icon svgIcon="user"></mat-icon>
+        <p>Perfil</p>
+      </a>
+
+    </div>
+    <!-- <div fxFlex="20" fxLayout="column" fxLayoutAlign="space-between center">
+      <mat-icon svgIcon="vacation"></mat-icon>
+      <p>Vacaciones</p>
+    </div>
+    <div fxFlex="20" fxLayout="column" fxLayoutAlign="space-between center">
+      <mat-icon svgIcon="document"></mat-icon>
+      <p>Documentos</p>
+    </div>
+    <div fxFlex="20" fxLayout="column" fxLayoutAlign="space-between center">
+      <mat-icon svgIcon="community"></mat-icon>
+      <p>Comunidad</p>
+    </div> -->
+  </div>
+</footer>

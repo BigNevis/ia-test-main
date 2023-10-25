@@ -1,0 +1,19 @@
+.receiptIcon {
+  width: 32px;
+  height: 32px;
+}
+
+::ng-deep #firmar .mat-raised-button {
+  background-color: #EF3340 !important;
+  color: white;
+}
+
+#signedReceipt {
+  width: 70px;
+  height: 70px;
+  margin-top: 15px;
+}
+
+::ng-deep #firmar .mat-raised-button.mat-button-disabled{
+  background-color: #0000001f !important;
+}

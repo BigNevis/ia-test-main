@@ -1,0 +1,46 @@
+.footer {
+  text-align: center;
+  color: #fff;
+}
+
+#redFoot {
+  font-size: 16px !important;
+  font-weight: 300;
+  height: 70px;
+  line-height: 54px;
+  background-color: #EF3340;
+}
+
+#footerMenu {
+  height: 65px;
+  font-size: 11px !important;
+  background-color: #FFFFFF;
+  border-radius: 15px 15px 0 0;
+  border: 1px solid #EFF2F3;
+  box-shadow: 0px 0px 5px rgba(55, 58, 54, 0.2);
+  padding: 0px 15px;
+  box-shadow: 0px 0px 5px rgba(55, 58, 54, 0.2);
+  padding: 12px;
+  color: #212529;
+}
+
+.circle-icon {
+  border: solid 1px #FFFFFF;
+  border-radius: 100%;
+  display: inline-block;
+  width: 46px;
+  height: 46px;
+  text-align: center;
+}
+
+.item-Menu {
+  cursor: pointer;
+}
+
+.linkMenu {
+  text-decoration: none;
+}
+
+.linkMenu:hover {
+  color: red;
+}

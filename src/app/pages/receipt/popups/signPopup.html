@@ -1,0 +1,33 @@
+<h1 mat-dialog-title>Firmar Recibo</h1>
+<div mat-dialog-content [formGroup]="form">
+
+  <form-row>
+    <mat-icon class="iconPopup">today</mat-icon>
+    <span fxFlex="100" class="mat-body">{{data.dto.period | date:'yyyy-MM'}}&nbsp;{{data.dto.description}}</span>
+  </form-row>
+
+  <form-row>
+    <mat-icon class="iconPopup">{{form.get("agree").value!='false'?'thumb_up':'thumb_down'}}</mat-icon>
+    <mat-radio-group formControlName="agree" required>
+        <mat-radio-button value="true">En conformidad</mat-radio-button>&nbsp;
+        <mat-radio-button value="false">En disconformidad</mat-radio-button>
+    </mat-radio-group>
+  </form-row>
+
+  <form-row *ngIf="isDisagree()">
+    <mat-icon class="iconPopup">comment</mat-icon>
+    <form-text-field fxFlex [form]="form" controlName="reason" name="Motivo" maxLength="120"></form-text-field>
+  </form-row>
+
+  <form-row>
+    <mat-icon class="iconPopup">vpn_key</mat-icon>
+    <form-field-input-type fxFlex="50" [form]="form" required type="password" name="PIN" maxLength="4"
+                           autocomplete="off" controlName="password"></form-field-input-type>
+    <a fxFlex="50" (click)="resetDigitalSign()">No recuerdo mi PIN</a>
+  </form-row>
+</div>
+
+<div mat-dialog-actions align="end">
+  <button mat-button color="warn" (click)="cancel()">Cancelar</button>&nbsp;
+  <submit-button color="primary" [disabled]="form.invalid" [click]="confirm.bind(this)">Confirmar</submit-button>
+</div>

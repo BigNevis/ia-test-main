@@ -1,0 +1,73 @@
+.card-red {
+  margin-bottom: 0px;
+  padding: 0 1rem !important;
+  background-color: var(--background-color) !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+#titleLogin {
+  margin-top: 1.5rem;
+}
+
+::ng-deep #background-acciona {
+  margin-top: 5vh;
+  padding: 0px;
+  overflow: hidden;
+  border-radius: 20px 20px 0px 0px !important;
+  width: 100%;
+}
+#background-acciona > img {
+  background-size: cover;
+  width: 100%;
+}
+
+#titleLogin,
+#subtitleLogin {
+  color: #fff !important;
+  font-weight: 200;
+}
+
+#titleLogin h4 {
+  font-size: 2.125rem;
+  line-height: 2.5rem;
+  font-weight: 200;
+}
+
+#subtitleLogin h6 {
+  font-size: 1.2rem !important;
+  line-height: 2rem !important;
+  font-weight: 400 !important;
+}
+
+/*Quitar fondo de autocompletado*/
+
+button.submitV2 {
+  width: 100%;
+  background-color: var(--button-color) !important;
+  color: #373a36 !important;
+  height: 42px;
+  font-size: 16px;
+  font-weight: 400;
+  margin: 7vh 0;
+}
+
+::ng-deep .login .mat-checkbox-label {
+  color: white !important;
+}
+
+::ng-deep .login .mat-checkbox-frame {
+  border: 1px solid white !important;
+}
+
+::ng-deep .login .mat-checkbox-input:checked ~ .mat-checkbox-background {
+  background: #ffb600;
+}
+
+::ng-deep .mat-card-image {
+  max-height: 300px;
+}
+
+.login-image {
+  display: unset !important;
+}

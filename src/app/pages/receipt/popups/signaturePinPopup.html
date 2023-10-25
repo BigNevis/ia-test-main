@@ -1,0 +1,22 @@
+<h1 mat-dialog-title>Crear Firma Digital</h1>
+
+<div mat-dialog-content [formGroup]="form" fxLayout="column">
+  <span fxFlex="100" class="mat-body">Ingrese su pin de seguridad personal</span>
+  <form-row>
+
+    <form-field-input-type fxFlex="100" [form]="form" required type="password" name="PIN" maxLength="4"
+      autocomplete="off" controlName="password" customIcon="true" matIcon="key"></form-field-input-type>
+  </form-row>
+  <form-row>
+    <form-field-input-type fxFlex="100" [form]="form" required type="password" name="Confirme PIN" maxLength="4"
+      autocomplete="off" controlName="password2" customIcon="true" matIcon="key"></form-field-input-type>
+  </form-row>
+  <mat-error>{{error}}</mat-error>
+</div>
+
+<div mat-dialog-actions align="end">
+  <button mat-button color="warn" (click)="cancel()">Cancelar</button>&nbsp;
+  <submit-button id="btnConfirm" color="warn" [disabled]="form.invalid" [click]="confirm.bind(this)">
+    Confirmar
+  </submit-button>
+</div>
